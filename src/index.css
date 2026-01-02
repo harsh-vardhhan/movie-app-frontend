@@ -101,3 +101,33 @@ h6 {
   align-items: center;
   min-height: 400px;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .page-header-container {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 16px !important;
+  }
+
+  .controls-wrapper {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .genre-select,
+  .search-input {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .movie-detail-card {
+    padding: 20px !important;
+  }
+}
+
+.movie-detail-card {
+  padding: 32px;
+}

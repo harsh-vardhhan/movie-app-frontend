@@ -9,14 +9,14 @@ export const MainLayout: React.FC = () => {
 
     return (
         <Layout className="layout" style={{ minHeight: '100vh' }}>
-            <Header className="glass-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 24px' }}>
-                <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-                    <Title level={3} style={{ color: 'white', margin: 0, background: 'linear-gradient(45deg, #1890ff, #00d2ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', cursor: 'pointer' }}>
+            <Header className="glass-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', flexWrap: 'wrap', height: 'auto', minHeight: 64 }}>
+                <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', marginRight: 'auto' }}>
+                    <Title level={3} style={{ color: 'white', margin: 0, background: 'linear-gradient(45deg, #1890ff, #00d2ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', cursor: 'pointer', fontSize: '1.25rem' }}>
                         MovieDB
                     </Title>
                 </Link>
             </Header>
-            <Content style={{ padding: '24px', marginTop: 0 }}>
+            <Content style={{ padding: '16px', marginTop: 0 }}>
                 <div className="site-layout-content" style={{ minHeight: 380 }}>
                     <Outlet />
                 </div>

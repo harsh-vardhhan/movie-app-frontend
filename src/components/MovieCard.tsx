@@ -23,7 +23,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
                     <img
                         alt={movie.title}
                         src={movie.poster_path}
-                        style={{ height: 300, objectFit: 'cover' }}
+                        style={{ width: '100%', aspectRatio: '2/3', objectFit: 'cover' }}
                     />
                 ) : null
             }

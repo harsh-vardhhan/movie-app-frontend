@@ -3,6 +3,7 @@ import { Typography, Row, Col, Spin, Pagination, Input, Select } from 'antd';
 import { useQuery } from '@tanstack/react-query';
 import { fetchMovies, fetchGenres } from '../api/endpoints';
 import { MovieCard } from '../components/MovieCard';
+import type { MovieList, PaginatedResponse } from '../types';
 // import { useDebounce } from '../hooks/useDebounce';
 
 const { Title, Text } = Typography;
@@ -39,24 +40,25 @@ export const HomePage: React.FC = () => {
     };
 
     // Helper to handle mixed API responses (Array vs Paginated Object)
-    const movies = Array.isArray(moviesData) ? moviesData : (moviesData as any)?.data || [];
-    const totalMovies = Array.isArray(moviesData) ? 0 : (moviesData as any)?.total || 0;
+    const movies: MovieList[] = Array.isArray(moviesData) ? (moviesData as MovieList[]) : ((moviesData as unknown) as PaginatedResponse<MovieList>)?.data || [];
+    const totalMovies = Array.isArray(moviesData) ? 0 : ((moviesData as unknown) as PaginatedResponse<MovieList>)?.total || 0;
 
     return (
         <div style={{ maxWidth: 1400, margin: '0 auto' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32, flexWrap: 'wrap', gap: 16 }}>
-                <div>
+            <div className="page-header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32, flexWrap: 'wrap', gap: 24 }}>
+                <div style={{ flex: '1 1 auto' }}>
                     <Title level={1} style={{ margin: 0, fontSize: '2.5rem', background: 'linear-gradient(90deg, #fff, #aaa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                         Discover
                     </Title>
                     <Text type="secondary">Explore various movies, actors, and directors.</Text>
                 </div>
 
-                <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+                <div className="controls-wrapper" style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
                     <Select
                         placeholder="Genre"
                         allowClear
                         size="large"
+                        className="genre-select"
                         style={{ width: 160 }}
                         onChange={handleGenreChange}
                         options={genres?.map(g => ({ label: g.name, value: g.name }))}
@@ -65,6 +67,7 @@ export const HomePage: React.FC = () => {
                         placeholder="Search..."
                         onSearch={handleSearch}
                         size="large"
+                        className="search-input"
                         style={{ width: 300, display: 'flex', alignItems: 'center' }}
                         allowClear
                         enterButton
@@ -79,7 +82,7 @@ export const HomePage: React.FC = () => {
             ) : (
                 <>
                     <Row gutter={[24, 24]}>
-                        {(movies as any[]).map((movie) => (
+                        {movies.map((movie) => (
                             <Col xs={24} sm={12} md={8} lg={6} key={movie.id}>
                                 <MovieCard movie={movie} />
                             </Col>

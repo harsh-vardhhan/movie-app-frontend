@@ -31,7 +31,7 @@ export const MovieDetailPage: React.FC = () => {
                 Back
             </Button>
 
-            <div style={{ background: '#1f1f1f', borderRadius: 16, padding: 32, border: '1px solid #303030' }}>
+            <div className="movie-detail-card" style={{ background: '#1f1f1f', borderRadius: 16, border: '1px solid #303030' }}>
                 <Row gutter={[48, 32]}>
                     <Col xs={24} md={10}>
                         {movie.poster_path && (
@@ -89,7 +89,7 @@ export const MovieDetailPage: React.FC = () => {
 
                         <Title level={4} style={{ marginTop: 32, fontSize: 18 }}>Cast</Title>
                         <List
-                            grid={{ gutter: 16, column: 3 }}
+                            grid={{ gutter: 16, xs: 2, sm: 3, md: 3, lg: 3, xl: 3, xxl: 3 }}
                             dataSource={movie.cast ? movie.cast.slice(0, 6) : []}
                             renderItem={(actor) => (
                                 <List.Item>
