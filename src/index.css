@@ -75,40 +75,14 @@ a {
   width: 100%;
 }
 
-/* Dark Input & Select Overrides */
-.ant-input,
-.ant-input-affix-wrapper,
-.ant-input-group-addon {
-  background-color: #1f1f1f !important;
-  border-color: #434343 !important;
-  color: white !important;
-}
-
-.ant-input:focus,
-.ant-input-affix-wrapper:focus,
-.ant-input-affix-wrapper-focused {
-  border-color: var(--primary-color) !important;
-  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
-}
-
-.ant-select-selector {
-  background-color: #1f1f1f !important;
-  border-color: #434343 !important;
-  color: white !important;
-}
-
-.ant-select-arrow {
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-
-/* Dark Footer Override */
+/* Dark Footer Override (optional polish) */
 .ant-layout-footer {
   background: #000 !important;
   color: rgba(255, 255, 255, 0.45) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Typography polish */
+/* Typography polish - ensure headers are always white */
 h1,
 h2,
 h3,
@@ -118,37 +92,6 @@ h6 {
   color: #fff !important;
   font-weight: 600 !important;
   letter-spacing: -0.01em;
-}
-
-/* Antd Overrides for Dark Mode Polish */
-.ant-layout {
-  background: var(--bg-color) !important;
-}
-
-.ant-layout-content {
-  background: transparent !important;
-}
-
-.ant-card {
-  background: var(--bg-card);
-  border-color: #303030;
-}
-
-.ant-card-meta-title {
-  color: var(--text-primary) !important;
-  font-size: 1.1rem !important;
-}
-
-.ant-card-meta-description {
-  color: var(--text-secondary) !important;
-}
-
-.ant-typography {
-  color: var(--text-primary) !important;
-}
-
-.ant-typography-secondary {
-  color: var(--text-secondary) !important;
 }
 
 /* Spinner center helper */

@@ -60,7 +60,6 @@ export const HomePage: React.FC = () => {
                         style={{ width: 160 }}
                         onChange={handleGenreChange}
                         options={genres?.map(g => ({ label: g.name, value: g.name }))}
-                        styles={{ popup: { root: { background: '#1f1f1f', border: '1px solid #303030' } } }}
                     />
                     <Search
                         placeholder="Search..."
