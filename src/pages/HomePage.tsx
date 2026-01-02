@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Row, Col, Spin, Pagination, Input, Select, Space } from 'antd';
+import { Typography, Row, Col, Spin, Pagination, Input, Select } from 'antd';
 import { useQuery } from '@tanstack/react-query';
 import { fetchMovies, fetchGenres } from '../api/endpoints';
 import { MovieCard } from '../components/MovieCard';
@@ -52,7 +52,7 @@ export const HomePage: React.FC = () => {
                     <Text type="secondary">Explore various movies, actors, and directors.</Text>
                 </div>
 
-                <Space wrap size="middle">
+                <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
                     <Select
                         placeholder="Genre"
                         allowClear
@@ -66,11 +66,11 @@ export const HomePage: React.FC = () => {
                         placeholder="Search..."
                         onSearch={handleSearch}
                         size="large"
-                        style={{ width: 300 }}
+                        style={{ width: 300, display: 'flex', alignItems: 'center' }}
                         allowClear
                         enterButton
                     />
-                </Space>
+                </div>
             </div>
 
             {isLoadingMovies ? (

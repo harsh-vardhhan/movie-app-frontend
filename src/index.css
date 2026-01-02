@@ -36,33 +36,76 @@ body {
 
 /* Smooth transitions */
 a {
+  text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
 /* Premium Card Hover Effect */
 .movie-card {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  border: 1px solid #303030 !important;
-  background: var(--bg-card) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: linear-gradient(145deg, #1f1f1f, #1a1a1a) !important;
   overflow: hidden;
+  border-radius: 12px !important;
 }
 
 .movie-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5) !important;
-  border-color: var(--primary-color) !important;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+  border-color: rgba(24, 144, 255, 0.5) !important;
+}
+
+.movie-card .ant-card-cover img {
+  transition: transform 0.5s ease;
+}
+
+.movie-card:hover .ant-card-cover img {
+  transform: scale(1.05);
 }
 
 /* Glassmorphism Header */
 .glass-header {
-  background: rgba(20, 20, 20, 0.7) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(20, 20, 20, 0.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
   width: 100%;
+}
+
+/* Dark Input & Select Overrides */
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-group-addon {
+  background-color: #1f1f1f !important;
+  border-color: #434343 !important;
+  color: white !important;
+}
+
+.ant-input:focus,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.ant-select-selector {
+  background-color: #1f1f1f !important;
+  border-color: #434343 !important;
+  color: white !important;
+}
+
+.ant-select-arrow {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Dark Footer Override */
+.ant-layout-footer {
+  background: #000 !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Typography polish */
@@ -74,7 +117,7 @@ h5,
 h6 {
   color: #fff !important;
   font-weight: 600 !important;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 /* Antd Overrides for Dark Mode Polish */
@@ -93,6 +136,7 @@ h6 {
 
 .ant-card-meta-title {
   color: var(--text-primary) !important;
+  font-size: 1.1rem !important;
 }
 
 .ant-card-meta-description {
