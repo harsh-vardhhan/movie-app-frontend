@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8000
+    # Use polling for hot reload in some environments, though Vite usually handles it well
+    command: bun run dev --host
