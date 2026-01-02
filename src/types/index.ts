@@ -44,7 +44,7 @@ export interface CastMember extends Actor {
 export interface Movie extends MovieList {
     overview: string;
     runtime: number;
-    cast: CastMember[]; // Updated to use CastMember
+    actors: CastMember[]; // Updated to use CastMember (mapped from API 'actors')
     director: Director;
 }
 

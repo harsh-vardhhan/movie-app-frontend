@@ -90,7 +90,7 @@ export const MovieDetailPage: React.FC = () => {
                         <Title level={4} style={{ marginTop: 32, fontSize: 18 }}>Cast</Title>
                         <List
                             grid={{ gutter: 16, xs: 2, sm: 3, md: 3, lg: 3, xl: 3, xxl: 3 }}
-                            dataSource={movie.cast ? movie.cast.slice(0, 6) : []}
+                            dataSource={movie.actors ? movie.actors.slice(0, 6) : []}
                             renderItem={(actor) => (
                                 <List.Item>
                                     <div style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => navigate(`/actors/${actor.id}`)}>
