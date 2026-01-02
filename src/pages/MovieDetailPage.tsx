@@ -33,16 +33,16 @@ export const MovieDetailPage: React.FC = () => {
 
             <div className="movie-detail-card" style={{ background: '#1f1f1f', borderRadius: 16, border: '1px solid #303030' }}>
                 <Row gutter={[48, 32]}>
-                    <Col xs={24} md={10}>
-                        {movie.poster_path && (
+                    {movie.poster_path ? (
+                        <Col xs={24} md={10}>
                             <img
                                 alt={movie.title}
                                 src={movie.poster_path}
                                 style={{ width: '100%', borderRadius: 12, boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}
                             />
-                        )}
-                    </Col>
-                    <Col xs={24} md={14}>
+                        </Col>
+                    ) : null}
+                    <Col xs={24} md={movie.poster_path ? 14 : 24}>
                         <Title level={1} style={{ fontSize: '2.5rem', marginBottom: 8 }}>{movie.title}</Title>
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', marginBottom: 24 }}>

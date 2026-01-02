@@ -52,12 +52,12 @@ export interface ActorDetail extends Actor {
     biography?: string;
     birthday?: string;
     place_of_birth?: string;
-    filmography: MovieList[];
+    movies: MovieList[];
 }
 
 export interface DirectorDetail extends Director {
     biography?: string;
     birthday?: string;
     place_of_birth?: string;
-    filmography: MovieList[];
+    movies: MovieList[];
 }

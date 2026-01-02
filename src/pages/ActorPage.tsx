@@ -25,14 +25,16 @@ export const ActorPage: React.FC = () => {
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
             <Button icon={<ArrowLeftOutlined />} onClick={() => navigate(-1)} style={{ marginBottom: 16 }}>Back</Button>
             <Row gutter={[32, 32]}>
-                <Col xs={24} md={8} style={{ textAlign: 'center' }}>
-                    <img
-                        alt={actor.name}
-                        src={actor.profile_path || 'https://placehold.co/300x450?text=No+Image'}
-                        style={{ width: '100%', maxWidth: 300, borderRadius: 8 }}
-                    />
-                </Col>
-                <Col xs={24} md={16}>
+                {actor.profile_path ? (
+                    <Col xs={24} md={8} style={{ textAlign: 'center' }}>
+                        <img
+                            alt={actor.name}
+                            src={actor.profile_path}
+                            style={{ width: '100%', maxWidth: 300, borderRadius: 8 }}
+                        />
+                    </Col>
+                ) : null}
+                <Col xs={24} md={actor.profile_path ? 16 : 24}>
                     <Title level={2}>{actor.name}</Title>
                     {actor.birthday && (
                         <Text type="secondary" style={{ marginBottom: 16, display: 'block' }}>
@@ -48,8 +50,8 @@ export const ActorPage: React.FC = () => {
                     <Title level={4}>Filmography</Title>
                     <List
                         grid={{ gutter: 16, xs: 1, sm: 2, md: 3 }}
-                        dataSource={actor.filmography}
-                        renderItem={(movie) => (
+                        dataSource={actor.movies}
+                        renderItem={(movie: any) => (
                             <List.Item>
                                 <Card
                                     size="small"
